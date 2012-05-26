@@ -20,8 +20,47 @@
   }
 
   function initMyBookmarklet() {
+
     (window.myBookmarklet = function() {
-      console.log("hi there");
+      
+        var context = new webkitAudioContext()
+          , source  = context.createBufferSource()
+          , request = new XMLHttpRequest()
+          ;
+
+        request.addEventListener( 'load', function( e ){
+          context.decodeAudioData( request.response, function( decoded_data ){
+            source.buffer = decoded_data;
+            source.connect( context.destination );
+          }, function( e ){
+          });
+        }, false );
+
+
+        request.open( 'GET', '26777__junggle__btn402.mp3', true );
+        request.responseType = "arraybuffer";
+        request.send();
+
+
+        function playSound(pitchShift){
+          var newSource = context.createBufferSource();
+          newSource.buffer = source.buffer;
+          newSource.connect( context.destination );
+          newSource.playbackRate.value = pitchShift;
+          newSource.noteOn( 0 );
+        };
+
+      $('*').each(function(index){
+        var $this = $(this);
+        var oldBorder = $this.css("border");
+        setTimeout(function () {
+          $this.css("border", "1px solid red");
+          playSound($this.parents().length);
+        }, (index + 1) * 100);
+        setTimeout(function() {
+          $this.css("border", oldBorder);
+        }, (index + 2) * 100);
+      });
     })();
   }
 
