@@ -1,3 +1,4 @@
+
 (function(){
 
   // the minimum version of jQuery we want
@@ -15,6 +16,7 @@
       }
     };
     document.getElementsByTagName("head")[0].appendChild(script);
+    jquery.noConflict();
   } else {
     initMyBookmarklet();
   }
