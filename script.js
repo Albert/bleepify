@@ -37,8 +37,9 @@
         }, false );
 
 
-        request.open( 'GET', '26777__junggle__btn402.mp3', true );
-        // request.open( 'GET', 'https://raw.github.com/Albert/bleepify-site/master/26777__junggle__btn402.mp3', true );        request.responseType = "arraybuffer";
+        // request.open( 'GET', '26777__junggle__btn402.mp3', true );
+        request.open( 'GET', 'http://albert-hwang.com/wordpress/wp-content/uploads/2012/05/26777__junggle__btn402.mp3', true );
+        request.responseType = "arraybuffer";
         request.send();
 
 
@@ -50,8 +51,8 @@
           newSource.noteOn( 0 );
         };
 
-      $('*').each(function(index){
-        var $this = $(this);
+      jQuery('*').each(function(index){
+        var $this = jQuery(this);
         var oldBorder = $this.css("border");
         setTimeout(function () {
           $this.css("border", "1px solid red");
