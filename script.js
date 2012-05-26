@@ -38,7 +38,7 @@
 
 
         request.open( 'GET', '26777__junggle__btn402.mp3', true );
-        request.responseType = "arraybuffer";
+        // request.open( 'GET', 'https://raw.github.com/Albert/bleepify-site/master/26777__junggle__btn402.mp3', true );        request.responseType = "arraybuffer";
         request.send();
 
 
