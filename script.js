@@ -39,29 +39,40 @@
 
 
         // request.open( 'GET', '26777__junggle__btn402.mp3', true );
-        request.open( 'GET', 'http://albert-hwang.com/wordpress/wp-content/uploads/2012/05/26777__junggle__btn402.mp3', true );
+        request.open( 'GET', 'http://staging.albert-hwang.com/26777__junggle__btn402.mp3', true );
         request.responseType = "arraybuffer";
         request.send();
 
-
-        function playSound(pitchShift){
+        var major = [1, 9/8, 5/4, 4/3, 3/2, 5/3, 15/8];
+        var minor = [1, 9/8, 6/5, 4/3, 3/2, 8/5, 9/5]; // of course, for now, w/out context, this is just a major scale of another note...
+        var blues = [1, 6/5, 4/3, 45/32, 3/2, 9/5];
+        var chromatic = [1, 16/15, 9/8, 6/5, 5/4, 4/3, 45/32, 3/2, 8/5, 5/3, 9/5, 15/8];
+        var arpeggio = [1, 5/4, 3/2];
+        var arpeggio7 = [1, 5/4, 3/2, 15/8];
+        
+        function playSound(depth, scale){
           var newSource = context.createBufferSource();
           newSource.buffer = source.buffer;
           newSource.connect( context.destination );
-          newSource.playbackRate.value = pitchShift;
+          baseNote = .2;
+          octave = Math.floor(depth / scale.length);
+          octaveFactor = Math.pow(2, octave);
+          note = (depth) % scale.length;
+          tone = baseNote * octaveFactor * scale[note];
+          newSource.playbackRate.value = tone;
           newSource.noteOn( 0 );
         };
 
-      jQuery('*').each(function(index){
+      jQuery(':visible').each(function(index){
         var $this = jQuery(this);
         var oldBorder = $this.css("border");
         setTimeout(function () {
           $this.css("border", "1px solid red");
-          playSound($this.parents().length);
-        }, (index + 1) * 100);
+          playSound($this.parents().length, major);
+        }, (index + 3) * 400);
         setTimeout(function() {
           $this.css("border", oldBorder);
-        }, (index + 2) * 100);
+        }, (index + 4) * 400);
       });
     })();
   }
