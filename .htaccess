@@ -1,4 +1,4 @@
-<FilesMatch "\.(mp3)$">
+<FilesMatch "\.(mp3|css)$">
   <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
   </IfModule>

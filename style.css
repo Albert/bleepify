@@ -1,0 +1,92 @@
+body #bleepifyControllerWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999999999999999999999999;
+}
+
+body #bleepifyController {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-right: 1px solid red;
+  border-bottom: 1px solid red;
+  -webkit-box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 1);
+  font-family: courier, arial, helvetica;
+  color: #00ff00!important;
+  padding: 30px;
+  float: left;
+}
+
+body #bleepifyController .bleepifyH1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+body #bleepifyController .bleepifyH2 {
+  font-size: 20px;
+  margin: 12px 0;
+}
+
+body #bleepifyController .scale-selector {
+  display: block;
+  padding-left: 30px;
+  font-size: 16px;
+  color: #00ff00!important;
+  text-decoration: none;
+  position: relative;
+}
+
+body #bleepifyController .scale-selector.active,
+body #bleepifyController .scale-selector:hover {
+  text-decoration: none;
+}
+
+body #bleepifyController .scale-selector.active:before,
+body #bleepifyController .scale-selector:hover:before {
+  content: ">";
+  position: absolute;
+  left: 10px;
+}
+
+body #bleepifyController #bleepifySecondsBtwn {
+  margin: 0 0 0 30px;
+  padding: 0 0 0 0;
+  border: 1px solid #00ff00;
+  font-size: 16px;
+  color: #00ff00;
+  background-color: transparent;
+  width: 60px;
+}
+
+body #bleepifyController #runBleepify {
+  float: right;
+  background-color: #00ff00;
+  border: 1px solid #00ff00;
+  padding: 3px 8px;
+  color: #000000;
+  margin-top: 20px;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+body #bleepifyController #runBleepify:hover {
+  background-color: transparent;
+  color: #00ff00!important;
+}
+
+body #bleepifyControllerWrap #bleepifyOpenClose {
+  position: absolute;
+  white-space: nowrap;
+  background-color: rgba(0, 0, 0, 0.8);
+  bottom: -20px;
+  left: 0;
+  font-size: 14px;
+  height: 20px;
+  line-height: 20px;
+  margin-top: 3px;
+  padding: 2px 8px 3px;
+  color: #00ff00!important;
+  text-decoration: none;
+  background-color: #000000;
+}
