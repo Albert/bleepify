@@ -1,4 +1,3 @@
-
 (function(){
 
   // the minimum version of jQuery we want
@@ -29,7 +28,7 @@
   function initMyBleepify() {
 
     (window.myBookmarklet = function() {
-      
+
         var context = new webkitAudioContext()
           , source  = context.createBufferSource()
           , request = new XMLHttpRequest()
@@ -42,7 +41,6 @@
           }, function( e ){
           });
         }, false );
-
 
         // request.open( 'GET', '26777__junggle__btn402.mp3', true );
         request.open( 'GET', 'http://bleepify.albert-hwang.com/26777__junggle__btn402.mp3', true );
@@ -133,7 +131,7 @@
           bleepifyNextItem($el, scale, delayTime);
         }
       }
-      
+
       function bleepifyNextItem($el, scale, delayTime) {
         var nextItem;
         if ($el.children(':visible').length > 0 && (! $el.hasClass("ancestorsExplored"))) {
@@ -154,7 +152,7 @@
           }
         }
       }
-      
+
       function cleanupBleepify() {
         jQuery(".ancestorsExplored").removeClass("ancestorsExplored");
         jQuery(".alreadyBleeped").removeClass("alreadyBleeped");
@@ -171,5 +169,4 @@
       // }, 500);
     })();
   }
-
 })();
