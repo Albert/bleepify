@@ -85,7 +85,6 @@
             jQuery(this).addClass("bleepify-running").html("Stop");
             letBleepifyRun = true;
             var scaleToRun = jQuery(".scale-selector.active").attr("id").replace("bleepify-", "");
-            console.log(scaleToRun);
             var delayTime = jQuery("#bleepifySecondsBtwn").attr("value") * 1000.0;
             bleepify(jQuery("body"), scales[scaleToRun], delayTime);
           } else {
@@ -118,15 +117,19 @@
       function bleepify($el, scale, delayTime) {
         if (!$el.hasClass('alreadyBleeped')) {
           $el.addClass('alreadyBleeped');
-          setTimeout(function () {
-            var formerlyBeeping = jQuery(".bleeping");
-            if (formerlyBeeping.length > 0) {
-              formerlyBeeping.css("border", formerlyBeeping.data("oldBorder")).removeClass("bleeping");
-            }
-            $el.addClass("bleeping").data("oldBorder", $el.css("border")).css("border", "1px solid red");
-            playSound($el.parents().length, scale);
+          if ($el.filter(":visible").length > 0) {
+            setTimeout(function () {
+              var formerlyBeeping = jQuery(".bleeping");
+              if (formerlyBeeping.length > 0) {
+                formerlyBeeping.css("border", formerlyBeeping.data("oldBorder")).removeClass("bleeping");
+              }
+              $el.addClass("bleeping").data("oldBorder", $el.css("border")).css("border", "1px solid red");
+              playSound($el.parents().length, scale);
+              bleepifyNextItem($el, scale, delayTime);
+            }, delayTime);
+          } else {
             bleepifyNextItem($el, scale, delayTime);
-          }, delayTime);
+          }
         } else {
           bleepifyNextItem($el, scale, delayTime);
         }
@@ -134,15 +137,15 @@
 
       function bleepifyNextItem($el, scale, delayTime) {
         var nextItem;
-        if ($el.children(':visible').length > 0 && (! $el.hasClass("ancestorsExplored"))) {
+        if ($el.children().length > 0 && (! $el.hasClass("ancestorsExplored"))) {
           $el.addClass("ancestorsExplored");
-          nextItem = $el.children(":visible").eq(0);
-        } else if ($el.next(":visible").length > 0) {
-          nextItem = $el.next(":visible");
-        } else if ($el.parent(":visible").length > 0){
-          nextItem = $el.parent(":visible");
+          nextItem = $el.children().eq(0);
+        } else if ($el.next().length > 0) {
+          nextItem = $el.next();
+        } else if ($el.parent().length > 0){
+          nextItem = $el.parent();
         }
-        if ($el.parent(":visible").length == 0) {
+        if ($el.parent().length == 0) {
           cleanupBleepify();
         } else {
           if (letBleepifyRun) {
