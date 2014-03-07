@@ -2,209 +2,180 @@
     "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-  <title>Bleepify It!</title>
+  <title>Bleepify!</title>
+  <style type="text/css" media="all">
+
+body {
+  font-family: garamond;
+  color: #444;
+}
+
+.wrap {
+  width: 700px;
+  margin: 60px auto;
+}
+
+h1 {
+  font-size: 3em;
+  font-family: courier, "courier new", monospace;
+  margin-bottom: .8em;
+  line-height: 1.4;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+p, ol {
+  font-size: 1.4em;
+}
+
+p.note {
+  font-size: 1.2em;
+  margin-top: 0;
+  font-style: italic;
+}
+
+.btn {
+  display: inline-block;
+  text-indent: -9999em;
+  background-image: url("bleepify_it.png");
+  background-position: center top;
+  width: 172px;
+  height: 36px;
+  margin-bottom: 20px;
+}
+
+.btn:hover {
+  background-position: center bottom;
+}
+
+.two-halves {
+  margin: 40px 0;
+}
+
+.two-halves:before,
+.two-halves:after {
+    content: " ";
+    display: table;
+}
+
+.two-halves:after {
+    clear: both;
+}
+.two-halves div {
+  width: 49%;
+}
+.two-halves .left {
+  float: left;
+}
+.two-halves .right {
+  float: right;
+}
+.divider {
+  font-size: 3em;
+  font-family: courier, "courier new", monospace;
+  margin-top: 100px;
+}
+.center {
+  text-align: center;
+}
+.secret {
+  text-decoration: none;
+  color: inherit;
+}
+  </style>
+</head>
 <body>
 
-<div>
-  <h1>Bleepify it!</h1>
-  <p><strong>Note!</strong> currently only works for Google Chrome. (chrome logo?)</p>
-  <script></script>
-  <script></script>
-  <script></script>
-  <script></script>
-  <script></script>
-  <script></script>
-  <script></script>
-  <script></script>
-  <script></script>
-  <script></script>
-  <script></script>
-  <script></script>
-  <script></script>
-  <script></script>
-  <script></script>
-  <p><strong>Please don't share this project until it gets a <em>much needed</em> design pass</strong>.</p>
-  <p>To bleepify this site, click this link: <a href="javascript:(function(){rnd=Math.floor(Math.random()*80000);document.body.appendChild(document.createElement('script')).src='http://bleepify.albert-hwang.com/script.js?r='+rnd;})();">Bleepify it!</a></p>
-  <p>To bleepify any website in existence, drag "<a href="javascript:(function(){rnd=Math.floor(Math.random()*80000);document.body.appendChild(document.createElement('script')).src='http://bleepify.albert-hwang.com/script.js?r='+rnd;})();">Bleepify it!</a>" to your bookmarks bar, visit a different website, and click on the bookmarklet.</p>
-  <p>This project was built by <a href="http://albert-hwang.com">Albert Hwang</a>.  Original idea came from my good friend Andrew Carr.</p>
-  <p>Wanna play with the source?  Here's the <a href="https://github.com/Albert/bleepify">github repo</a>.</p>
-  <ul>
-    <li><a href="javascript:(function(){rnd=Math.floor(Math.random()*80000);document.body.appendChild(document.createElement('script')).src='script.js?r='+rnd;})();">Albert's Local Testing</a> (This is only here for my development of bleepify... this will work on this site, but won't work if used on another page through the bookmarklet)</li>
-    <li>
-      <div>
-        Now here's some random markup to make your Bleepify experience more enjoyable:
-        <div>
-          This
-          <div>
-            Is
-            <div>
-              Just
-              <div>
-                Filler.
-                <div>
-                  This
-                  <div>
-                    Is
-                    <div>
-                      Just
-                      <div>
-                        Filler.
-                        <div>
-                          This
-                          <div>
-                            Is
-                            <div>
-                              Just
-                              <div>
-                                Filler.
-                                <div>
-                                  This
-                                  <div>
-                                    Is
-                                    <div>
-                                      Just
-                                      <div>
-                                        Filler.
-                                        <div>
-                                          This
-                                          <div>
-                                            Is
-                                            <div>
-                                              Just
-                                              <div>
-                                                Filler.
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </li>
-    <li>This is an example blah 1</li>
-    <li>This is an example blah 2</li>
-    <li>This is an example blah 3</li>
-    <li>This is an example blah 4</li>
-    <li>This is an example blah 5</li>
-    <li>This is an example blah 6</li>
-    <li>This is an example blah 7</li>
-    <li>
+<div class="wrap">
+  <!-- Ramp up to next octave -->
+  <div><div><div><div><div><div><div><div><div><div><h1>
+    <!-- tease with leading tone -->
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <br />
+    <span>&#9834;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <!-- end tease -->
+
+    <!-- MEGA PAYOFF! -->
+     <span><span><span><span><span><span><span><span>Blee</span></span></span></span></span></span></span></span
+    ><span><span><span><span><span><span><span><span>pi</span></span></span></span></span></span></span></span
+    ><span><span><span><span><span><span><span><span>fy</span></span></span></span></span></span></span></span>
+    <span><span><span><span><span><span><span><span>It</span></span></span></span></span></span></span></span>
+    <span><span><span><span><span><span><span><span>&nbsp;&nbsp;&nbsp;&nbsp;&#9834;</span></span></span></span></span></span></span></span>
+    <br />
+    <div><div><div><div><div><div><div>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    </div></div></div></div></div></div></div>
+    <!-- end MEGA PAYOFF -->
+  </h1>
+
+  <div class="center">
+    <p>Turn up your volume and</p>
+    <a class="btn" href="javascript:(function(){rnd=Math.floor(Math.random()*80000);document.body.appendChild(document.createElement('script')).src='http://bleepify.albert-hwang.com/script.js?r='+rnd;})();">Bleepify it!</a>
+    <p class="note">(Sorry! only works on Chrome and Safari)</p>
+  </div>
+
+  <div class="two-halves">
+    <div class="left">
+      <h2>Bleepify this page:</h2>
       <ol>
-        <li>Word</li>
-        <li>Blah</li>
-        <li>O yeah</li>
-        <li>
-          <div>
-            <table>
-              <tr>
-                <td><span>This is a test</span></td>
-                <td><span>This is a test</span></td>
-                <td><span>This is a test</span></td>
-              </tr>
-              <tr>
-                <td><span>This is a test</span></td>
-                <td><span>This is a test</span></td>
-                <td><span>This is a test</span></td>
-              </tr>
-              <tr>
-                <td><span>This is a test</span></td>
-                <td>
-                  <div>
-                    yeop
-                    <div>
-                      Horay!
-                    </div>
-                    <div>
-                      Why not?
-                    </div>
-                    <div>
-                      Why <span>not</span><span><span><span>?</span></span></span>
-                    </div>
-                  </div>
-                </td>
-                <td><span>This is a test</span></td>
-              </tr>
-              <tr>
-                <td><span>This is a test</span></td>
-                <td><span>This is a test</span></td>
-                <td><span>This is a test</span></td>
-              </tr>
-            </table>
-          </div>
-        </li>
-        <li>: )</li>
-        <li>: D</li>
-        <li>D :</li>
+        <li>Turn up your volume</li>
+        <li>Click "Try it now"</li>
+        <li>Click "Run"</li>
       </ol>
-    </li>
-    <li>Thank you for listening</li>
-  </ul>
-  <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" charset="utf-8">
-      var context = new webkitAudioContext()
-        , source  = context.createBufferSource()
-        , request = new XMLHttpRequest()
-        ;
+    </div>
 
-      request.addEventListener( 'load', function( e ){
-        context.decodeAudioData( request.response, function( decoded_data ){
-          source.buffer = decoded_data;
-          source.connect( context.destination );
-        }, function( e ){
-        });
-      }, false );
+    <div class="right">
+      <h2>Bleepify other pages:</h2>
+      <ol>
+        <li>Turn up your volume</li>
+        <li>Drag "Try it now" to your bookmarks bar</li>
+        <li>Visit some other page</li>
+        <li>Click the bookmark: "Bleepify it!"</li>
+        <li>Click "Run"</li>
+      </ol>
+    </div>
+  </div>
 
+  <div class="divider">
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span>&#9834;</span>
+    <span><a href="javascript:(function(){rnd=Math.floor(Math.random()*80000);document.body.appendChild(document.createElement('script')).src='script.js?r='+rnd;})();" class="secret" title="for personal testing">&#9834;</a></span>
+  </div>
 
-      // request.open( 'GET', '26777__junggle__btn402.mp3', true );
-      request.open( 'GET', 'http://bleepify.albert-hwang.com/26777__junggle__btn402.mp3', true );
-      request.responseType = "arraybuffer";
-      request.send();
+  <p class="center"><a href="http://github.com/Albert/bleepify">Source code</a></p>
 
-      var intervalsInFractions = [1, 9/8, 5/4, 4/3, 3/2, 5/3, 15/8];
-
-      var chromaticInFractions = [1, 16/15, 9/8, 6/5, 5/4, 4/3, 45/32, 3/2, 8/5, 5/3, 9/5, 15/8];
-
-      function playSound(depth){
-        var newSource = context.createBufferSource();
-        newSource.buffer = source.buffer;
-        newSource.connect( context.destination );
-        baseNote = .2;
-        octave = Math.floor(depth / 12);
-        octaveFactor = Math.pow(2, octave);
-        note = (depth) % 12;
-        tone = baseNote * octaveFactor * chromaticInFractions[note];
-        newSource.playbackRate.value = tone;
-        newSource.noteOn( 0 );
-        console.log(depth + " -- " + tone);
-      };
-
-    jQuery(':visible').each(function(index){
-      var $this = jQuery(this);
-      var oldBorder = $this.css("border");
-      setTimeout(function () {
-        $this.css("border", "1px solid red");
-        playSound($this.parents().length);
-      }, (index + 3) * 200);
-      setTimeout(function() {
-        $this.css("border", oldBorder);
-      }, (index + 4) * 200);
-    });
-    
-  </script> -->
 </body>
 </html>

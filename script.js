@@ -64,7 +64,7 @@
         ctrl=ctrl+ '      <a href="#" class="scale-selector" id="bleepify-arpeggio">Arpeggio</a>';
         ctrl=ctrl+ '      <a href="#" class="scale-selector" id="bleepify-arpeggio7">Arpeggio7</a>';
         ctrl=ctrl+ '    </div>';
-        ctrl=ctrl+ '    <a href="#" id="runBleepify">Run</a>';
+        ctrl=ctrl+ '    <a href="#" id="runBleepify">&#9834; Run</a>';
         ctrl=ctrl+ '    <div style="clear: both;"></div>';
         ctrl=ctrl+ '  </div>';
         ctrl=ctrl+ '  <a href="#" id="bleepifyOpenClose" title="hide panel" alt="hide panel">hide / show Bleepify</a>';
@@ -163,7 +163,7 @@
         if (formerlyBeeping.length > 0) {
           formerlyBeeping.css("border", formerlyBeeping.data("oldBorder")).removeClass("bleeping");
         }
-        jQuery("#runBleepify").removeClass("bleepify-running").html("Run");
+        jQuery("#runBleepify").removeClass("bleepify-running").html("&#9834; Run");
         letBleepifyRun = false;
       }
 
