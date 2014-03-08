@@ -29,6 +29,7 @@
 
     (window.myBookmarklet = function() {
 
+      try {
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
         var bleepBuffer = null;
         var context = new AudioContext();
@@ -111,62 +112,73 @@
           source.start(0);
         };
 
-      function bleepify($el, scale, delayTime) {
-        if (!$el.hasClass('alreadyBleeped')) {
-          $el.addClass('alreadyBleeped');
-          if ($el.filter(":visible").length > 0) {
-            setTimeout(function () {
-              var formerlyBeeping = jQuery(".bleeping");
-              if (formerlyBeeping.length > 0) {
-                formerlyBeeping.css("border", formerlyBeeping.data("oldBorder")).removeClass("bleeping");
-              }
-              $el.addClass("bleeping").data("oldBorder", $el.css("border")).css("border", "1px solid red");
-              playSound($el.parents().length, scale);
+        function bleepify($el, scale, delayTime) {
+          if (!$el.hasClass('alreadyBleeped')) {
+            $el.addClass('alreadyBleeped');
+            if ($el.filter(":visible").length > 0) {
+              setTimeout(function () {
+                var formerlyBeeping = jQuery(".bleeping");
+                if (formerlyBeeping.length > 0) {
+                  formerlyBeeping.css("border", formerlyBeeping.data("oldBorder")).removeClass("bleeping");
+                }
+                $el.addClass("bleeping").data("oldBorder", $el.css("border")).css("border", "1px solid red");
+                playSound($el.parents().length, scale);
+                bleepifyNextItem($el, scale, delayTime);
+              }, delayTime);
+            } else {
               bleepifyNextItem($el, scale, delayTime);
-            }, delayTime);
+            }
           } else {
             bleepifyNextItem($el, scale, delayTime);
           }
-        } else {
-          bleepifyNextItem($el, scale, delayTime);
         }
-      }
 
-      function bleepifyNextItem($el, scale, delayTime) {
-        var nextItem;
-        if ($el.children().length > 0 && (! $el.hasClass("ancestorsExplored"))) {
-          $el.addClass("ancestorsExplored");
-          nextItem = $el.children().eq(0);
-        } else if ($el.next().length > 0) {
-          nextItem = $el.next();
-        } else if ($el.parent().length > 0){
-          nextItem = $el.parent();
-        }
-        if ($el.parent().length == 0) {
-          cleanupBleepify();
-        } else {
-          if (letBleepifyRun) {
-            bleepify(nextItem, scale, delayTime);
-          } else {
+        function bleepifyNextItem($el, scale, delayTime) {
+          var nextItem;
+          if ($el.children().length > 0 && (! $el.hasClass("ancestorsExplored"))) {
+            $el.addClass("ancestorsExplored");
+            nextItem = $el.children().eq(0);
+          } else if ($el.next().length > 0) {
+            nextItem = $el.next();
+          } else if ($el.parent().length > 0){
+            nextItem = $el.parent();
+          }
+          if ($el.parent().length == 0) {
             cleanupBleepify();
+          } else {
+            if (letBleepifyRun) {
+              bleepify(nextItem, scale, delayTime);
+            } else {
+              cleanupBleepify();
+            }
           }
         }
-      }
 
-      function cleanupBleepify() {
-        jQuery(".ancestorsExplored").removeClass("ancestorsExplored");
-        jQuery(".alreadyBleeped").removeClass("alreadyBleeped");
-        var formerlyBeeping = jQuery(".bleeping");
-        if (formerlyBeeping.length > 0) {
-          formerlyBeeping.css("border", formerlyBeeping.data("oldBorder")).removeClass("bleeping");
+        function cleanupBleepify() {
+          jQuery(".ancestorsExplored").removeClass("ancestorsExplored");
+          jQuery(".alreadyBleeped").removeClass("alreadyBleeped");
+          var formerlyBeeping = jQuery(".bleeping");
+          if (formerlyBeeping.length > 0) {
+            formerlyBeeping.css("border", formerlyBeeping.data("oldBorder")).removeClass("bleeping");
+          }
+          jQuery("#runBleepify").removeClass("bleepify-running").html("&#9834; Run");
+          letBleepifyRun = false;
         }
-        jQuery("#runBleepify").removeClass("bleepify-running").html("&#9834; Run");
-        letBleepifyRun = false;
       }
-
-      // setTimeout(function () {
-      //   bleepify(jQuery('body'), major, 100);
-      // }, 500);
+      catch(error) {
+        var r = confirm("\"Bleepify\" is broken for your browser. : (\n\nEmail yourself a link to play w/ bleepify later?");
+        if (r==true) {
+          var body = [
+            "Bleepify is a site that turns web pages into music.",
+            "Unfortunately, it doesn't work for all browsers...",
+            "It should work for all current versions of Firefox, Chrome, and Safari for both Mobile and Desktop",
+            "http://bleepify.albert-hwang.com"
+          ].join("%0A%0A");
+          window.open('mailto:example@example.com?subject=Bleepify It!&body=' + body);
+        }
+        else {
+        }
+      }
     })();
   }
 })();
