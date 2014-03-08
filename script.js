@@ -29,22 +29,19 @@
 
     (window.myBookmarklet = function() {
 
-        var context = new webkitAudioContext()
-          , source  = context.createBufferSource()
-          , request = new XMLHttpRequest()
-          ;
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        var bleepBuffer = null;
+        var context = new AudioContext();
+        var request = new XMLHttpRequest();
+        request.open('GET', 'https://s3.amazonaws.com/Bleepify/bleep.mp3', true);
+        request.responseType = 'arraybuffer';
 
-        request.addEventListener( 'load', function( e ){
-          context.decodeAudioData( request.response, function( decoded_data ){
-            source.buffer = decoded_data;
-            source.connect( context.destination );
-          }, function( e ){
+        // Decode asynchronously
+        request.onload = function() {
+          context.decodeAudioData(request.response, function(buffer) {
+            bleepBuffer = buffer;
           });
-        }, false );
-
-        // request.open( 'GET', '26777__junggle__btn402.mp3', true );
-        request.open( 'GET', 'https://s3.amazonaws.com/Bleepify/bleep.mp3', true );
-        request.responseType = "arraybuffer";
+        }
         request.send();
 
         var ctrl ='';
@@ -102,16 +99,16 @@
         };
 
         function playSound(depth, scale){
-          var newSource = context.createBufferSource();
-          newSource.buffer = source.buffer;
-          newSource.connect( context.destination );
+          var source = context.createBufferSource();
+          source.buffer = bleepBuffer;
+          source.connect(context.destination);
           baseNote = .2;
           octave = Math.floor(depth / scale.length);
           octaveFactor = Math.pow(2, octave);
           note = (depth) % scale.length;
           tone = baseNote * octaveFactor * scale[note];
-          newSource.playbackRate.value = tone;
-          newSource.noteOn( 0 );
+          source.playbackRate.value = tone;
+          source.start(0);
         };
 
       function bleepify($el, scale, delayTime) {
