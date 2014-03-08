@@ -1,13 +1,15 @@
-bleepify
+Bleepify
 ========
 
+> "Music happens to be an art form that transcends language."
+-Herbie Hancock
 
-After installing this bookmarklet, you'll be able to listen to any website you want to!
+Why read websites when you can listen to them?
+----------------------------------------------
 
-When turned on, *the bookmarklet will sequentially pass through each element on the page, ringing out a note.  The pitch of the note is determined by how deeply nested the element sits in the page.
+Hosted on [bleepify.albert-hwang.com](bleepify.albert-hwang.com), this project gives your browser the ability to make "music" out of any website.
 
-Interesting rhythms begin to emerge organically.  Each website has it's own set of musical tropes based on the arrangements modularized code that they use.  <-- thank my artsy-fartsy education for that artsy-fartsy paragraph : )
-
-Anyhow, deets and examples available at:
-
-bleepify.albert-hwang.com
+* Runs on a crazy old version of jQuery
+* The [sound came](https://www.freesound.org/people/junggle/sounds/26777/) from [Freesound.org](http://www.freesound.org)
+* Built by [Albert Hwang](http://www.albert-hwang.com)
+* Inspired by Andrew Carr
