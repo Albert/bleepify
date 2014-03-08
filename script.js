@@ -7,7 +7,7 @@
   if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
     var done = false;
     var script = document.createElement("script");
-    script.src = "http://ajax.googleapis.com/ajax/libs/jquery/" + v + "/jquery.min.js";
+    script.src = "https://ajax.googleapis.com/ajax/libs/jquery/" + v + "/jquery.min.js";
     script.onload = script.onreadystatechange = function(){
       if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) {
         done = true;
@@ -21,7 +21,7 @@
   var style = document.createElement("link");
   style.type = "text/css";
   style.rel = "stylesheet";
-  style.href = "http://bleepify.albert-hwang.com/style.css?r=" + Math.floor(Math.random()*80000);
+  style.href = "https://s3.amazonaws.com/Bleepify/style.css?r=" + Math.floor(Math.random()*80000);
   //style.href = "/style.css?r=" + Math.floor(Math.random()*80000);
   document.getElementsByTagName("head")[0].appendChild(style);
 
@@ -43,7 +43,7 @@
         }, false );
 
         // request.open( 'GET', '26777__junggle__btn402.mp3', true );
-        request.open( 'GET', 'http://bleepify.albert-hwang.com/26777__junggle__btn402.mp3', true );
+        request.open( 'GET', 'https://s3.amazonaws.com/Bleepify/bleep.mp3', true );
         request.responseType = "arraybuffer";
         request.send();
 
